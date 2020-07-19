@@ -1,0 +1,38 @@
+---
+title: "Houses at sale in Buenos Aires"
+author: "Ricardo Leon"
+date: "7/18/2020"
+output: html_document
+---
+
+## Summary
+
+Interactive maps can be built using the R package Leaflet. Main details about houses at sale located in Buenos Aires, Argentina are shown in a OpenStreetMap interactive map after processing a data set provided by [Properati](https://www.properati.com.ar/data/). Code is available in [this](https://github.com/ricardoleoncorreia/data-science-portfolio) GitHub repository.
+
+## Data preprocess criteria
+
+Houses shown satisfy the following conditions:
+
+* **Location:** Capital of Argentina.
+* **Property type:** House.
+* **Total surface (m<sup>2</sup>):** Between 15 and 500.
+* **Number of rooms:** 4.
+* **Number of bathrooms:** 2.
+* **Prices (USD):** Between 200,000 and 2,000,000.
+
+## Interactive map
+
+```{r message=FALSE, echo=FALSE}
+library(leaflet)
+dataset <- read.csv('dataset.csv')
+legend_labels <- c('price < 200,000', '200,000 < price < 1,000,000', 'price > 1,000,000')
+legend_colors <- c('red', 'blue', 'green')
+legend_title <- 'Price levels'
+dataset %>%
+    leaflet() %>%
+    addTiles() %>%
+    addLegend(labels=legend_labels, colors=legend_colors, title=legend_title) %>%
+    addCircleMarkers(clusterOptions=markerClusterOptions(),
+                     popup = dataset$description,
+                     color = dataset$price_level)
+```
