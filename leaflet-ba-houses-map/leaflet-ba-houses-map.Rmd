@@ -7,7 +7,7 @@ output: html_document
 
 ## Summary
 
-Interactive maps can be built using the R package Leaflet. Main details about houses at sale located in Buenos Aires, Argentina are shown in a OpenStreetMap interactive map after processing a data set provided by [Properati](https://www.properati.com.ar/data/). Code is available in [this](https://github.com/ricardoleoncorreia/data-science-portfolio) GitHub repository.
+Interactive maps can be built using the R package Leaflet. Main details about houses at sale located in Buenos Aires, Argentina are shown in a OpenStreetMap interactive map after processing a data set provided by [Properati](https://www.properati.com.ar/data/). Code is available in [this](https://github.com/ricardoleoncorreia/data-science-portfolio/tree/master/leaflet-ba-houses-map) GitHub repository.
 
 ## Data preprocess criteria
 
