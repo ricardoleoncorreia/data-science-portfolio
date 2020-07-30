@@ -1,0 +1,32 @@
+---
+title: "Residual Analysis"
+author: "Ricardo Leon"
+date: "7/29/2020"
+output:
+  ioslides_presentation:
+      widescreen: true
+      incremental: true
+      css: styles.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction {data-background="body.png" data-background-size="cover"}
+
+The following slide contains a Plotly scatter plot to make a residual<br>analysis for house price predictions in Buenos Aires, Argentina.
+
+Code to generate this presentation is provided in this Github [repo]().
+
+## Residual Analysis {data-background="body.png" data-background-size="cover"}
+
+```{r}
+library(plotly)
+dataset <- read.csv('residuals.csv')
+plot_ly(x=dataset$predictions,
+        y=dataset$rmse_residuals,
+        mode='markers',
+        color=dataset$property_type) %>%
+  layout(xaxis=list(title = "Predictions (USD)"), yaxis=list(title = "Residuals (USD)"))
+```
